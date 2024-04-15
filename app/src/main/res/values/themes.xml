@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.WeatherApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+
+        <item name="android:statusBarColor">@color/your_status_bar_color</item> <!-- Customize status bar color -->
+        <item name="android:navigationBarColor">@color/your_navigation_bar_color</item> <!-- Customize navigation bar color -->
+    </style>
+
+    <!-- Customize dark theme if needed -->
+    <!-- <style name="Base.Theme.WeatherApp.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/my_dark_primary</item>
+        <item name="android:statusBarColor">@color/your_dark_status_bar_color</item>
+        <item name="android:navigationBarColor">@color/your_dark_navigation_bar_color</item>
+    </style> -->
+
+    <style name="Theme.WeatherApp" parent="Base.Theme.WeatherApp" />
+</resources>

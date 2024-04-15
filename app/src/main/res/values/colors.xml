@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="your_status_bar_color">#ADD8E6 </color> <!-- Replace with your desired status bar color -->
+    <color name="your_navigation_bar_color">#0674c3</color> <!-- Replace with your desired navigation bar color -->
+</resources>

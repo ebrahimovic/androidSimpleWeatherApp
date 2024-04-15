@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradient_background"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cityInputLayout"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/weatherCard">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/cityInputEditText"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/select_a_city" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/searchCity"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        android:layout_width="92dp"
+        android:elevation="9dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#C9E1F3"
+        android:text="@string/search"
+        android:layout_marginStart="16dp"
+
+
+        app:layout_constraintStart_toEndOf="@+id/cityInputLayout"
+        app:layout_constraintTop_toTopOf="@+id/cityInputLayout">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/celOrFeh"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        android:layout_width="92dp"
+        android:layout_height="60dp"
+        android:elevation="9dp"
+        android:backgroundTint="#C9E1F3"
+        android:text="@string/metric"
+        android:layout_marginEnd="16dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/cityInputLayout"
+        app:layout_constraintTop_toTopOf="@+id/cityInputLayout">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/weatherCard"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:strokeColor="@color/design_default_color_on_primary"
+        app:strokeWidth="0dp"
+        android:elevation="9dp"
+        android:backgroundTint="#B4DFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/celOrFeh"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/cityName"
+                style="@style/TextAppearance.Material3.HeadlineLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:text="@string/vancouver_ca"
+
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/currentDateAndTime"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="60dp"
+                    android:gravity="center"
+                    android:text="" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/refresh"
+                    android:layout_width="60dp"
+                    app:icon="@drawable/sync"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    app:iconSize="30dp"
+                    android:layout_gravity="end"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.button.MaterialButton>
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity=""
+                android:layout_height="130dp">
+
+                <ImageView
+                    android:id="@+id/todayWeatherWidget"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:contentDescription="@string/todo">
+
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:id="@+id/todaysCurrentTemp"
+                        android:layout_width="wrap_content"
+                        style="@style/TextAppearance.Material3.HeadlineLarge"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="@string/c" />
+                    <TextView
+                        android:id="@+id/todaysWeatherCondition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/weatherdesc"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/todaysHigh"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text=""
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/todaysLow"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text=""
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_margin="10dp"
+                        android:layout_width="50dp"
+                        android:src="@drawable/rain"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="50dp"
+                        android:contentDescription="@string/todo">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/rain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text=""
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/rain"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_margin="10dp"
+                        android:src="@drawable/wind"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:contentDescription="@string/todo">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/windSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text=""
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/wind_speed"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_margin="10dp"
+                        android:src="@drawable/humidity"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:contentDescription="@string/todo">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/humidity"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        />
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:text="@string/humidity"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/weatherCard1"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#B2D9F4"
+        app:layout_constraintEnd_toEndOf="@+id/searchCity"
+        app:layout_constraintStart_toStartOf="@+id/celOrFeh"
+        app:layout_constraintTop_toBottomOf="@+id/cityInputLayout">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/todayPlus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="">
+
+            </TextView>
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/todayWeatherWidgetPlus1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/todo">
+
+            </ImageView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysWeatherConditionPlus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/weathercondition">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysHighPlus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/h">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysLowPlus1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/l">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/weatherCard2"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#97C9ED"
+        app:layout_constraintEnd_toEndOf="@+id/searchCity"
+        app:layout_constraintStart_toStartOf="@+id/celOrFeh"
+        app:layout_constraintTop_toBottomOf="@+id/weatherCard1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/todayPlus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="">
+
+            </TextView>
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/todayWeatherWidgetPlus2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/todo">
+
+            </ImageView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysWeatherConditionPlus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/weathercondition">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysHighPlus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/h">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysLowPlus2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/l">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/weatherCard3"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#88C0E8"
+        app:layout_constraintEnd_toEndOf="@+id/searchCity"
+        app:layout_constraintStart_toStartOf="@+id/celOrFeh"
+        app:layout_constraintTop_toBottomOf="@+id/weatherCard2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todayPlus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="">
+
+            </TextView>
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/todayWeatherWidgetPlus3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/todo">
+
+            </ImageView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysWeatherConditionPlus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/weathercondition">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysHighPlus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/h">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysLowPlus3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/l">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:backgroundTint="#70B7EA"
+        android:id="@+id/weatherCard4"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/searchCity"
+        app:layout_constraintStart_toStartOf="@+id/celOrFeh"
+        app:layout_constraintTop_toBottomOf="@+id/weatherCard3">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todayPlus4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="">
+
+            </TextView>
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/todayWeatherWidgetPlus4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/todo">
+
+            </ImageView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysWeatherConditionPlus4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/weathercondition">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysHighPlus4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/h">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/todaysLowPlus4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/l">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

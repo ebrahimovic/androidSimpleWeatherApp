@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="select_a_city">Select a city</string>
+    <string name="search">Search</string>
+    <string name="metric">Metric</string>
+    <string name="vancouver_ca">Vancouver, CA</string>
+    <string name="todo">TODO</string>
+    <string name="c">C</string>
+    <string name="weatherdesc">weatherDesc</string>
+    <string name="rain">Rain</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="humidity">Humidity</string>
+    <string name="weathercondition">weatherCondition</string>
+    <string name="h">H</string>
+    <string name="l">L</string>
+    <string name="imp">IMP</string>
+</resources>
